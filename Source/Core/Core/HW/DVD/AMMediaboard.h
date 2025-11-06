@@ -64,7 +64,6 @@ struct MediaBoardRanges
   u32 end;
   u8* buffer;
   size_t buffer_size;
-  u32 base_offset;
 };
 
 namespace AMMediaboard
@@ -182,46 +181,6 @@ enum MediaBoardAddress : u32
 
   FirmwareMagicWrite1 = 0x00600000,
   FirmwareMagicWrite2 = 0x00700000,
-};
-
-// Mario Kart GP2 has a complete list of them
-// but in japanese
-// They somewhat match WSA errors codes
-enum SocketStatusCodes
-{
-  SSC_E_4 = -4,  // Failure (abnormal argument)
-  SSC_E_3 = -3,  // Success (unsupported command)
-  SSC_E_2 =
-      -2,  // Failure (failed to send, abnormal argument, or communication condition violation)
-  SSC_E_1 = -1,  // Failure (error termination)
-
-  SSC_EINTR = 4,    // An interrupt occurred before data reception was completed
-  SSC_EBADF = 9,    // Invalid descriptor
-  SSC_E_11 = 11,    // Send operation was blocked on a non-blocking mode socket
-  SSC_EACCES = 13,  // The socket does not support broadcast addresses, but the destination address
-                    // is a broadcast address
-  SSC_EFAULT =
-      14,  // The name argument specifies a location other than an address used by the process.
-  SSC_E_23 = 23,     // System file table is full.
-  SSC_AEMFILE = 24,  // Process descriptor table is full.
-  SSC_EMSGSIZE =
-      36,  // Socket tried to send message without splitting, but message size is too large.
-  SSC_EAFNOSUPPORT = 47,   // Address prohibited for use on this socket.
-  SSC_EADDRINUSE = 48,     // Address already in use.
-  SSC_EADDRNOTAVAIL = 49,  // Prohibited address.
-  SSC_E_50 = 50,           // Non-socket descriptor.
-  SSC_ENETUNREACH = 51,    // Cannot access specified network.
-  SSC_ENOBUFS = 55,        // Insufficient buffer
-  SSC_EISCONN = 56,        // Already connected socket
-  SSC_ENOTCONN = 57,       // No connection for connection-type socket
-  SSC_ETIMEDOUT = 60,      // Timeout
-  SSC_ECONNREFUSED = 61,   // Connection request forcibly rejected
-  SSC_EHOSTUNREACH = 65,   // Remote host cannot be reached
-  SSC_EHOSTDOWN = 67,      // Remote host is down
-  SSC_EWOULDBLOCK = 70,    // Socket is in non-blocking mode and connection has not been completed
-  SSC_E_69 = 69,  // Socket is in non-blocking mode and a previously issued Connect command has not
-                  // been completed
-  SSC_SUCCESS = 70,
 };
 
 void Init();
